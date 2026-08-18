@@ -1,0 +1,11 @@
+{
+  "name": "attack-on-titan-living-world",
+  "version": "0.1.0",
+  "description": "Attack on Titan: Living World Simulation — браузерная симуляция живого мира (Трост, 845 год).",
+  "private": true,
+  "scripts": {
+    "start": "echo 'Откройте index.html в браузере — сборка не требуется.'",
+    "test": "node test/smoke.js"
+  },
+  "license": "UNLICENSED"
+}

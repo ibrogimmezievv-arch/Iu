@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attack on Titan — Living World Simulation</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Стартовый экран -->
+  <div id="start-screen">
+    <h1>Attack on Titan — Living World</h1>
+    <p class="sub">Симуляция живого мира за Стеной Мария. Район Трост, 845 год.</p>
+
+    <label for="name-input">Имя персонажа</label>
+    <input id="name-input" type="text" value="Странник" maxlength="40">
+
+    <label for="gender-input">Пол</label>
+    <select id="gender-input">
+      <option value="m">Мужской</option>
+      <option value="f">Женский</option>
+    </select>
+
+    <label for="seed-input">Seed мира (один seed — один мир)</label>
+    <input id="seed-input" type="number" value="12345">
+    <button id="btn-random-seed" type="button" style="margin-top:6px">Случайный seed</button>
+
+    <button id="btn-new-game">Начать новую игру</button>
+
+    <div id="saves-list"></div>
+  </div>
+
+  <!-- Игровой экран -->
+  <div id="game-screen" class="hidden">
+    <header>
+      <h1>AoT — Living World</h1>
+      <span id="game-time">--:--</span>
+      <span id="speed-indicator">▶ 1x</span>
+      <button class="speed-btn" data-speed="pause">⏯</button>
+      <button class="speed-btn" data-speed="1">1x</button>
+      <button class="speed-btn" data-speed="5">5x</button>
+      <button class="speed-btn" data-speed="20">20x</button>
+      <button class="speed-btn" data-speed="100">100x</button>
+    </header>
+
+    <main>
+      <section id="map-panel" class="panel" aria-label="Карта"></section>
+      <section id="scene-panel" class="panel" aria-label="Текущая сцена"></section>
+      <section id="player-panel" class="panel" aria-label="Персонаж"></section>
+    </main>
+
+    <div id="dialogue-box"></div>
+
+    <footer>
+      <div id="log-panel"></div>
+    </footer>
+  </div>
+
+  <!-- Порядок загрузки важен: ядро → мир → актёры → симуляция → AI → UI -->
+  <script src="js/core/RNG.js"></script>
+  <script src="js/core/TimeSystem.js"></script>
+  <script src="js/core/SaveSystem.js"></script>
+  <script src="js/world/World.js"></script>
+  <script src="js/actors/NPC.js"></script>
+  <script src="js/simulation/Systems.js"></script>
+  <script src="js/ai/DialogueSystem.js"></script>
+  <script src="js/core/GameEngine.js"></script>
+  <script src="js/ui/UI.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
